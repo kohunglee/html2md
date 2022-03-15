@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>源码转换示例</title>
+    <style>
+        body {
+            margin: 40px auto;
+            max-width: 777px;
+        }
+        button {
+            margin-bottom: 6px;
+        }
+        .e2 {
+            background: aliceblue;
+            border: 0px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>源码转换示例</h1>
+    <div class="c">
+            <textarea class="e1" cols="100" rows="10" id="input" placeholder="输入 html 代码"></textarea>
+            <button>转换成 MD 格式</button><br>
+            <textarea class="e2" readonly="" cols="100" rows="10" id="output" ></textarea>
+    </div>
+</body>
+<script src="../html2md_1.0.js"></script> 
+<script>
+    document.querySelector("button").onclick=function(){
+        var source = document.querySelector(".e1").value
+        document.querySelector(".e2").value = html2md(source)
+    };
+</script>
+</html>

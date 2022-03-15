@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>粘贴转换示例</title>
+    <style>
+        body {
+            margin: 40px auto;
+            max-width: 777px;
+        }
+        i {
+            color:#c9c9c9;
+        }
+        .e2 {
+            background: aliceblue;
+            border: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>粘贴转换示例</h1>
+    <div class="c">
+            复制任意网页的内容，本页面可直接以 Markdown 格式粘贴到下方蓝色区域
+            <br>
+            <i>(顺便提示一下，打开 F12 调试控制台可以看见转换前的 HTML 源码哦！)</i>
+            <br><br>
+            <textarea class="e2" cols="100" rows="20" id="output"></textarea>
+    </div>
+</body>
+<script src="../html2md_1.0.js"></script> 
+<script>
+    document.getElementById("output").addEventListener("paste", function (e) {  // 粘贴事件触发
+        if ( !(e.clipboardData && e.clipboardData.items) ) return
+
+        var pasteData = e.clipboardData || window.clipboardData // 获取剪切板里的全部内容
+        pasteAnalyseResult = new Array  // 用于储存遍历分析后的结果
+
+        for(var i = 0; i < pasteData.items.length; i++) {  // 遍历分析剪切板里的数据
+            var item = pasteData.items[i]
+
+            if((item.kind == "string") && (item.type.match('^text/html'))){
+                pasteAnalyseResult['type'] = 'html'
+                pasteAnalyseResult['data'] = item
+            }
+        }
+        if(pasteAnalyseResult['type'] == 'html'){  // 如果剪切板有 html 格式数据,则将其转化为 markdown 格式文本,并显示出来
+            pasteAnalyseResult['data'].getAsString(function (str) {
+                document.getElementById("output").value = html2md(str)
+            })
+        }
+    }, false);
+</script>
+</html>
