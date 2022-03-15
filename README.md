@@ -1,5 +1,5 @@
 # html2md
-一个体积超小、使用原生 JS 实现将 HTML 转化为 Markdown 格式的小函数，可用于将剪切板的网页内容变成 markdown 格式
+自制一个体积超小、使用原生 JS 实现将 HTML 转化为 Markdown 格式的小函数，可用于将剪切板的网页内容变成 markdown 格式
 
 -----
 
