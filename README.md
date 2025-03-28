@@ -5,8 +5,8 @@
 
 这是两个示例
 
-1. HTML 转换 -- https://ccgxk.com/html2md/example/conversion.html
-2. 直接就粘贴成 markdown 格式 -- https://ccgxk.com/html2md/example/Paste_and_convert.html
+1. HTML 转换 -- https://kohunglee.github.io/html2md/example/conversion.html
+2. 直接就粘贴成 markdown 格式 -- https://kohunglee.github.io/html2md/example/Paste_and_convert.html
 
 -----
 
